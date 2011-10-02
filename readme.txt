@@ -2,8 +2,8 @@
 Contributors: ggalmazor
 Donate link: http://greenpeace.org
 Tags: post, tag, template, loop, latest
-Requires at least: 3.0
-Tested up to: 3.0.5
+Requires at least: 3.2.1
+Tested up to: 3.2.1
 Stable tag: trunk
 
 This plugin adds a template tag to know if the current post in the_loop() is the latest post.
@@ -26,9 +26,9 @@ This plugin adds a template tag called <em>is_latest()</em> to know if the <stro
 
 This plugin doesn't have configuration nor database storage. Just replace the files with the new package.
 
-== Example ==
+== Examples ==
 
-Use h1 for the latest post's title, h2 in the remaining posts:
+**Use h1 for the latest post's title, h2 in the remaining posts:**
 
 `<?php // Code taken from TwentyTen loop.php file ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -45,11 +45,23 @@ Use h1 for the latest post's title, h2 in the remaining posts:
 
 <?php endwhile; // End the loop. Whew. ?>`
 
+**Show full content on latest post only, summary on rest:**
+
+`<?php if (is_latest()): ?>
+  <?php the_content('Continue reading <span class="meta-nav">&rarr;</span>'); ?>
+<?php else: ?>
+  <?php echo wp_trim_excerpt(''); ?>
+<?php endif; ?>`
+
 == Frequently Asked Questions ==
 
 None yet. Be the first, I dare you!
 
 == Changelog ==
+
+= 0.2 =
+* Fixed sql query sentence for latest Wordpress versions (> 3.2.1)
+* Improved usage examples avoiding the use of the_excerpt() (deprecated function)
 
 = 0.1 =
 * First implementation

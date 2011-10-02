@@ -4,15 +4,15 @@
   Plugin Name: Is Latest Post?
   Plugin URI: http://www.programania.net/wordpress-plugin-is-latest-post/
   Description: This plugin adds a template tag to know if the current post in the_loop() is the latest post.
-  Version: 0.1
+  Version: 0.2
   Author: Guillermo Gutiérrez
-  Author URI: http://www.nianoniano.com
+  Author URI: http://ggalmazor.com
   License: GPL2
  */
 ?>
 <?php
 
-/*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : PLUGIN AUTHOR EMAIL)
+/*  Copyright 2011 Guillermo Gutiérrez Almazor (email : guille@ggalmazor.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as
@@ -39,7 +39,7 @@
  */
 function is_latest() {
   global $post, $wpdb;
-  $sql = sprintf("SELECT COUNT(*) FROM %s WHERE post_data > '%s' AND post_type = 'post' AND post_status = 'publish';",
+  $sql = sprintf("SELECT COUNT(*) FROM %s WHERE post_date > '%s' AND post_type = 'post' AND post_status = 'publish';",
           $wpdb->posts,
           $post->post_date
   );
