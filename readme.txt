@@ -50,7 +50,7 @@ This plugin doesn't have configuration nor database storage. Just replace the fi
 `<?php if (is_latest()): ?>
   <?php the_content('Continue reading <span class="meta-nav">&rarr;</span>'); ?>
 <?php else: ?>
-  <?php echo wp_trim_excerpt(''); ?>
+  <?php echo the_excerpt(); ?>
 <?php endif; ?>`
 
 == Frequently Asked Questions ==
@@ -61,7 +61,7 @@ None yet. Be the first, I dare you!
 
 = 0.2 =
 * Fixed sql query sentence for latest Wordpress versions (> 3.2.1)
-* Improved usage examples avoiding the use of the_excerpt() (deprecated function)
+* Improved usage examples
 
 = 0.1 =
 * First implementation
